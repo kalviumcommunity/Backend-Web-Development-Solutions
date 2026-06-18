@@ -1,0 +1,14 @@
+{
+  "name": "node-runtime-streams",
+  "version": "1.0.0",
+  "description": "Node.js Runtime Features — reference solution (fs.readFile vs stream + pipe).",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["nodejs", "streams", "buffers", "fs", "file-system"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {}
+}
