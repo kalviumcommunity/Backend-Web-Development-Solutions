@@ -1,0 +1,26 @@
+/**
+ * articles-api — SOLUTION (organised supporting layers)
+ *
+ *   validators/  express-validator chains
+ *   utils/       AppError, asyncHandler, validateRequest (pure helpers)
+ *   config/      the ONLY file that reads process.env
+ *
+ * Behaviour is identical to the starter; only the structure changed.
+ */
+const express = require('express');
+const articlesRouter = require('./routes/articles');
+const errorHandler = require('./middleware/errorHandler');
+const config = require('./config');
+
+const app = express();
+app.use(express.json());
+
+app.use('/articles', articlesRouter);
+
+app.use(errorHandler);
+
+app.listen(config.port, () => {
+  console.log(`articles-api listening on http://localhost:${config.port}`);
+});
+
+module.exports = app;
