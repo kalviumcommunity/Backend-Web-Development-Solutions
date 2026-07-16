@@ -1,4 +1,4 @@
-# Threadbase Reliability Control Room — Solution
+# Aurora Profiles — Reliability Control Room Solution
 
 ```bash
 npm start

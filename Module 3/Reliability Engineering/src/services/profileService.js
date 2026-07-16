@@ -1,5 +1,5 @@
 const DEFAULT_AVATAR = {
-  url: 'https://cdn.threadbase.dev/ava/default.png',
+  url: 'https://cdn.aurora-profiles.dev/avatars/default.png',
   initials: '?',
   source: 'fallback',
 };

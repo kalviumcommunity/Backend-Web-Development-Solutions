@@ -1,8 +1,8 @@
 const plans = {
-  healthy: [{ type: 'success', avatar: { url: 'https://cdn.threadbase.dev/ava/maya.png', initials: 'M' } }],
+  healthy: [{ type: 'success', avatar: { url: 'https://cdn.aurora-profiles.dev/avatars/maya.png', initials: 'M' } }],
   blip: [
     { type: 'error', status: 503, message: 'avatar service temporarily unavailable' },
-    { type: 'success', avatar: { url: 'https://cdn.threadbase.dev/ava/maya.png', initials: 'M' } },
+    { type: 'success', avatar: { url: 'https://cdn.aurora-profiles.dev/avatars/maya.png', initials: 'M' } },
   ],
   slow: [{ type: 'hang' }],
   down: [{ type: 'error', status: 503, message: 'avatar service unavailable' }],
