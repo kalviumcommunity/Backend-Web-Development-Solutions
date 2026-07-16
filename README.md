@@ -19,6 +19,7 @@ assignment's solution lives at the same path as its starter.
 | Module 2 | [Supporting Layers](./Module%202/Supporting%20Layers) | validators/, utils/ (AppError, asyncHandler, validateRequest), config/ as sole env reader |
 | Module 3 | [Backend Data Flow](./Module%203/Backend%20Data%20Flow) | domain rules as service-layer guards, checks-before-writes workflow |
 | Module 3 | [API Design Best Practices](./Module%203/API%20Design%20Best%20Practices) | noun-based routes, `data`/`error` envelopes, pagination metadata, safe errors |
+| Module 3 | [Reliability Engineering](./Module%203/Reliability%20Engineering) | timeout + bounded exponential retry + safe avatar fallback / graceful degradation |
 
 Each solution folder has its own `README.md` explaining **how it was solved**, file by file,
 plus how to run and verify it.
