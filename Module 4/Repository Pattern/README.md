@@ -1,5 +1,13 @@
 # Repository Pattern Assignment Solution
 
-The service depends on a stable repository contract. Storage is private to `src/repositories/postRepository.js`; replacing its internal array with a Map or Prisma adapter does not require service or controller changes.
+Reference implementation for the repository-boundary refactor.
 
-The repository owns ID generation, returns a copy from `findAll`, and uses `null` or `false` for missing records according to each method contract.
+## Run
+
+```bash
+npm start
+```
+
+`src/repositories/postRepository.js` owns the private in-memory store, ID generation, and five-method contract. `postService.js` depends only on that contract. Controllers remain unchanged.
+
+The repository can be replaced by an array, Map, or Prisma-backed implementation without changing the service contract.
