@@ -18,16 +18,7 @@ const worker = new Worker(
       });
     }
   },
-  {
-    connection,
-    defaultJobOptions: {
-      attempts: 3,
-      backoff: {
-        type: 'exponential',
-        delay: 1000,
-      },
-    },
-  }
+  { connection }
 );
 
 worker.on('completed', (job) => {
