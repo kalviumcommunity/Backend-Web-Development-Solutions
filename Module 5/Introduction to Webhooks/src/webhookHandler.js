@@ -8,16 +8,26 @@ const _processedIds = new Set();
 
 function verifySignature(rawBody, sigHeader, secret) {
   if (!sigHeader) return false;
+
+  // Require exactly 'sha256=<hex>' format
+  if (!sigHeader.startsWith('sha256=')) return false;
+  const received = sigHeader.slice('sha256='.length);
+
+  // Validate received is a 64-char hex string (32 bytes = SHA-256 output)
+  if (!/^[0-9a-f]{64}$/i.test(received)) return false;
+
   const expected = crypto
     .createHmac('sha256', secret)
     .update(rawBody)
     .digest('hex');
-  const received = sigHeader.split('=').slice(1).join('=');
-  if (!received || Buffer.byteLength(expected) !== Buffer.byteLength(received)) return false;
-  return crypto.timingSafeEqual(
-    Buffer.from(expected, 'hex'),
-    Buffer.from(received,  'hex'),
-  );
+
+  const expectedBuf = Buffer.from(expected, 'hex');
+  const receivedBuf = Buffer.from(received, 'hex');
+
+  // Guard length equality before timingSafeEqual (throws if lengths differ)
+  if (expectedBuf.length !== receivedBuf.length) return false;
+
+  return crypto.timingSafeEqual(expectedBuf, receivedBuf);
 }
 
 async function handleWebhook(req, res) {
