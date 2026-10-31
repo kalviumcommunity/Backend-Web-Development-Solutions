@@ -33,7 +33,11 @@ function verifySignature(rawBody, sigHeader, secret) {
 async function handleWebhook(req, res) {
   // 1. Verify HMAC-SHA256 signature over raw body Buffer
   const sig = req.headers['x-webhook-signature'];
-  if (!verifySignature(req.body, sig, process.env.WEBHOOK_SECRET || 'testsecret')) {
+  const secret = process.env.WEBHOOK_SECRET;
+  if (typeof secret !== 'string' || secret.trim().length === 0) {
+    return res.status(503).json({ error: 'Webhook service unavailable' });
+  }
+  if (!verifySignature(req.body, sig, secret)) {
     return res.status(401).json({ error: 'Invalid signature' });
   }
 
