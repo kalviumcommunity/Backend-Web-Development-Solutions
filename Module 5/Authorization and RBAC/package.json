@@ -1,7 +1,7 @@
 {
-  "name": "lu54-rbac-idor-starter",
+  "name": "lu54-rbac-idor-solution",
   "version": "1.0.0",
-  "description": "Starter project: add requireRole and ownership checks to close an IDOR (LU 54)",
+  "description": "Reference solution: add requireRole and ownership checks to close an IDOR (LU 54)",
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
